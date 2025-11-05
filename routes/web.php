@@ -22,7 +22,6 @@ Route::middleware('auth')->group(function () {
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
-
     Route::middleware(IsUserAdmin::class)->group(function () {
         Route::controller(AdminController::class)->group(callback: function () {
             Route::get('/admin', 'index')->name('admin.index');
@@ -40,12 +39,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::delete('/employer/delete/{id}', 'delete')->name('emp.delete');
             Route::get('/employer/getJobs', 'getJobs')->name('emp.getJobs');
             Route::get('/employer/edit_job/{id}', 'edit')->name('emp.edit');
-            Route::patch('/employer/update_job', 'update')->name('emp.update');
+            Route::put('/employer/update_job/{id}', 'update')->name('emp.update');
         });
     });
-
-
-
 });
 
 require __DIR__.'/auth.php';

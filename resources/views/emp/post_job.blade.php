@@ -67,7 +67,7 @@
             </div>
             <div class="mb-6">
                 <label class="block text-gray-600 mb-1">Type</label>
-                <input type="text" name="category" value="{{ old('type') }}"
+                <input type="text" name="type" value="{{ old('type') }}"
                        class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                        placeholder="e.g. 50000 - 70000">
                 @error('type')

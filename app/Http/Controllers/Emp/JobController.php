@@ -18,7 +18,10 @@ class JobController extends Controller{
             'description' => 'required|string',
             'salary' => 'required|numeric',
             'location' => 'required|string|max:255',
-            'category' => 'required|string|max:255',
+            'skills' => 'required|string|max:255',
+            'experience' => 'required|string|max:255',
+            'qualification' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
         ]);
 
         if ($validator->fails()) {
@@ -77,6 +80,44 @@ class JobController extends Controller{
             return redirect()->route('emp.index')->withErrors("no such job");
         }
         return View('emp.edit_post', compact('job'));
+    }
+    public function update($id,Request $request){
+        $job=Job::find($id);
+        if($job==null){
+            return redirect()->route('emp.index')->withErrors("The job you want to update does not exist");
+        }
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'salary' => 'required|numeric',
+            'location' => 'required|string|max:255',
+            'skills' => 'required|string|max:255',
+            'experience' => 'required|string|max:255',
+            'qualification' => 'required|string|max:255',
+            'type' => 'required|string|max:255',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+
+      $update=$job->update([
+            'title' => $request->title,
+            'description' => $request->description==null?"hello worold":$request->description,
+            'salary' => $request->salary,
+            'location' => "BTM",
+            'skills'=>$request->skills,
+            'experience'=>$request->experience,
+            'type' => $request->type==null?"programmer":$request->type,
+            'user_id' => Auth::id(),
+            'qualification' => $request->qualification,
+            'updated_at' => now(),
+        ]);
+        if($update==false){
+            return response()->json("Tumse na ho payega");
+        }
+        return redirect()->route('emp.index');
     }
 
 

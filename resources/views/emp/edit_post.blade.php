@@ -3,13 +3,10 @@
 @section('title', 'Edit Job')
 
 @section('content')
-<?php
-
-    ?>
     <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow" style="padding: 10px">
         <h2 class="text-2xl font-semibold mb-6 text-gray-700">Edit Job</h2>
 
-        <form method="POST" action="{{ route('emp.update', $job->id) }}">
+        <form method="POST" action="{{ route('emp.update', $job->job_id) }}">
             @csrf
             @method('PUT')
 
@@ -75,7 +72,7 @@
             {{-- Type / Category --}}
             <div class="mb-4">
                 <label class="block text-gray-600 mb-1">Type</label>
-                <input type="text" name="category" value="{{ old('category', $job->category) }}"
+                <input type="text" name="type" value="{{ old('category', $job->type) }}"
                        class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
                 @error('category')
                 <span class="text-red-500 text-sm">{{ $message }}</span>

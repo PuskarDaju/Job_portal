@@ -80,7 +80,8 @@
                         <td class="p-3 text-sm text-gray-700">${job.experience ?? 'N/A'}</td>
                         <td class="p-3 text-sm text-gray-700">${job.salary ? 'Rs. ' + job.salary : 'N/A'}</td>
                         <td class="p-3 text-sm text-gray-700">${job.type ?? 'N/A'}</td>
-                        <td> <a class="btn btn-primary" href="/employer/edit_job/${job.job_id}"> Edit </a>
+                        <td> <a  class="inline-block bg-blue-500 text-white font-semibold px-4 py-2 rounded-lg hover:bg-blue-600 transition"
+ href="/employer/edit_job/${job.job_id}"> Edit </a>
                      <form method="POST" action="/employer/delete/${job.job_id}" style="display:inline;">
                         @csrf
                 <input type="hidden" name="_method" value="DELETE">
