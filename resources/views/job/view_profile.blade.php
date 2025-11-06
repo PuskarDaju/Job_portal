@@ -1,5 +1,6 @@
 @extends('layouts.jobseeker') {{-- use your jobseeker layout --}}
 @section('title', 'My Profile')
+@section('page_title',"Profile")
 
 
 @section('content')

@@ -1,6 +1,7 @@
 @extends('layouts.jobseeker')
 
 @section('title', 'Complete Profile')
+@section('page_title',"Update Profile")
 
 @section('content')
     <div class="min-h-screen bg-gray-50 flex justify-center py-10 px-4">
@@ -20,10 +21,6 @@
 
                 {{-- Profile Photo --}}
                 <div class="flex flex-col items-center mb-4">
-
-                        <label for="photo" class="block text-sm font-medium text-gray-700 mb-2">Profile Picture</label>
-                    <div class="flex flex-col items-center mb-4">
-                        {{-- Image preview --}}
                         <label for="image" class="relative cursor-pointer">
                             <img id="preview"
                                  src="{{ !empty(Auth::user()->image) ? asset('storage/' . Auth::user()->image) : asset('images/default-avatar.png') }}"
@@ -35,7 +32,7 @@
                         @error('image')
                         <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
-                    </div>
+                </div>
 
                 {{-- Name & Phone --}}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -98,7 +95,6 @@
                             class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow">
                         Save Profile
                     </button>
-                </div>
                 </div>
             </form>
 
