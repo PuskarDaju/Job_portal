@@ -49,7 +49,7 @@
                         const div = document.createElement('div');
                         div.classList.add('bg-white', 'rounded-xl', 'shadow-md', 'hover:shadow-lg', 'transition', 'p-6');
                         div.innerHTML = `
-                            <div class="flex justify-between items-center mb-3">
+                        <div class="flex justify-between items-center mb-3">
                                 <p class="text-sm text-gray-500">
                                     Posted by <span class="font-semibold text-indigo-600">${job.user?.name ?? 'Unknown'}</span>
                                 </p>
